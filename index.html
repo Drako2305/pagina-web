@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carros Porsche & Mini Cooper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+        .car-brand {
+            margin: 20px 0;
+        }
+        .car-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .car {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
+        }
+        .car img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .car h3 {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carros Porsche & Mini Cooper</h1>
+        <p>Dueño: Drako David Salazar Torres - Universidad Cooperativa</p>
+        <p>Contacto: Pasto, Colombia</p>
+
+        <div class="car-brand">
+            <h2>Porsche</h2>
+            <div class="car-list" id="porsche-list"></div>
+        </div>
+        <div class="car-brand">
+            <h2>Mini Cooper</h2>
+            <div class="car-list" id="mini-list"></div>
+        </div>
+    </div>
+
+    <script>
+        const cars = {
+            Porsche: [
+                { name: "911 Carrera", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfGp2jS14pgGHQScGhPZbTXINDI7z9tSP94A&s" },
+                { name: "Taycan", image: "https://pictures.porsche.com/rtt/iris?COSY-EU-100-1711coMvsi60AAt5FwcmBEgA4qP8iBUDxPE3Cb9pNXkBuNYdMGF4tl3U0%25z8rMHIspMBvMZq6G5OtgSv31nBJaA4qh4NSEGewirQ91wRmWBi2dN7gVdcQGAUlhDfHJIspAnPpadiZJyNZz0ctBvoTUkf8dXFyg%25PED6uvqcN9nReRv8o4y7z7f3F%25vUqE8PuWXsOBQiZJyNcY9ctBvoQKLf8dXFMB%25PED6uTMiN9nRe2P6o4y7zQyhF%25vUqhZZuWgEfJqriE0rhWKo2PfjzsoMVm4XBJ%25OBJ" },
+                { name: "Cayenne", image: "file:///C:/Users/ANA%20SALAZAR/OneDrive/Escritorio/extcam01.web" }
+            ],
+            "Mini Cooper": [
+                { name: "Mini Cooper S", image: "https://source.unsplash.com/featured/?minicooperS" },
+                { name: "Mini Countryman", image: "https://source.unsplash.com/featured/?minicountryman" },
+                { name: "Mini Clubman", image: "https://source.unsplash.com/featured/?miniclubman" }
+            ]
+        };
+
+        function loadCars(brand, elementId) {
+            const container = document.getElementById(elementId);
+            cars[brand].forEach(car => {
+                const carDiv = document.createElement("div");
+                carDiv.className = "car";
+                carDiv.innerHTML = `
+                    <img src="${car.image}" alt="${car.name}">
+                    <h3>${car.name}</h3>
+                `;
+                container.appendChild(carDiv);
+            });
+        }
+
+        loadCars("Porsche", "porsche-list");
+        loadCars("Mini Cooper", "mini-list");
+    </script>
+</body>
+</html>
+
